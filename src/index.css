@@ -1,0 +1,93 @@
+@import "tailwindcss";
+
+@layer base {
+    :root {
+        --bg-deep: #030712;
+        --neon-cyan: #22d3ee;
+        --neon-pink: #f472b6;
+        --neon-purple: #c084fc;
+        --matrix-green: #4ade80;
+    }
+
+    body {
+        background-color: var(--bg-deep);
+        color: #e2e8f0;
+        font-family: ui-monospace, Consolas, Monaco, monospace;
+        overflow-x: hidden;
+        scroll-behavior: smooth;
+    }
+}
+
+/* Utilities & Animations */
+.text-glow-cyan {
+    text-shadow:
+        0 0 10px rgba(34, 211, 238, 0.7),
+        0 0 25px rgba(34, 211, 238, 0.4),
+        0 0 40px rgba(34, 211, 238, 0.2);
+}
+
+.text-glow-pink {
+    text-shadow:
+        0 0 10px rgba(244, 114, 182, 0.7),
+        0 0 25px rgba(244, 114, 182, 0.4);
+}
+
+.box-glow-cyan {
+    box-shadow:
+        0 0 20px rgba(34, 211, 238, 0.18),
+        inset 0 0 15px rgba(34, 211, 238, 0.05);
+    transition: all 0.3s ease;
+}
+
+.box-glow-cyan:hover {
+    box-shadow:
+        0 0 30px rgba(34, 211, 238, 0.3),
+        inset 0 0 20px rgba(34, 211, 238, 0.1);
+}
+
+.box-glow-pink {
+    box-shadow:
+        0 0 20px rgba(244, 114, 182, 0.18),
+        inset 0 0 15px rgba(244, 114, 182, 0.05);
+}
+
+/*Subtle Screen Flicker Effect */
+.crt-overlay {
+    position: relative;
+}
+
+.crt-overlay::before {
+    content: " ";
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background:
+        linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.3) 50%),
+        linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.03));
+    z-index: 999;
+    background-size:
+        100% 3px,
+        4px 100%;
+    pointer-events: none;
+}
+
+/* Custom Cyberpunk Scrollbars */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+::-webkit-scrollbar-track {
+    background: #030712;
+}
+::-webkit-scrollbar-thumb {
+    background: #1e293b;
+    border-radius: 3px;
+    border: 1px solid rgba(34, 211, 238, 0.3);
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #22d3ee;
+    box-shadow: 0 0 10px #22d3ee;
+}
